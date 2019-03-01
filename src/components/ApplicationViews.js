@@ -4,9 +4,11 @@ import AnimalList from './animal/AnimalList'
 import LocationList from './locations/LocationList'
 import EmployeeList from './employees/Employees'
 import OwnerList from './owners/OwnersList'
-// import AnimalManager from '../modules/AnimalManager'
-
-
+import AnimalManager from "../modules/AnimalManager"
+import EmployeeManager from '../modules/EmployeeManager';
+import OwnerManager from '../modules/OwnerManager';
+import LocationManager from '../modules/LocationManager';
+import AnimalDetail from './animal/AnimalDetail';
 class ApplicationViews extends Component {
 
 
@@ -20,18 +22,26 @@ class ApplicationViews extends Component {
     componentDidMount() {
         const newState = {}
 
-        fetch("http://localhost:5002/animals")
-            .then(r => r.json())
-            .then(animals => newState.animals = animals)
-            .then(() => fetch("http://localhost:5002/employees")
-                .then(r => r.json()))
-            .then(employees => newState.employees = employees)
-            .then(() => fetch("http://localhost:5002/owners")
-                .then(r => r.json()))
-            .then(owners => newState.owners = owners)
-            .then(() => fetch("http://localhost:5002/locations")
-                .then(r => r.json()))
-            .then(locations => newState.locations = locations)
+        AnimalManager.getAll().then(allAnimals => {
+            this.setState({
+                animals: allAnimals
+            })
+        })
+        EmployeeManager.getAll().then(allEmployees => {
+            this.setState({
+                employees: allEmployees
+            })
+        })
+        OwnerManager.getAll().then(allOwners => {
+            this.setState({
+                owners: allOwners
+            })
+        })
+        LocationManager.getAll().then(allLocations => {
+            this.setState({
+                locations: allLocations
+            })
+        })
             .then(() => this.setState(newState))
     }
 
@@ -82,10 +92,13 @@ class ApplicationViews extends Component {
                     return <AnimalList deleteAnimal={this.deleteAnimal} animals={this.state.animals} />
                 }} />
                 <Route path="/employees" render={(props) => {
-                    return <EmployeeList deleteEmployee={this.deleteEmployee} employees={this.state.employees}  />
+                    return <EmployeeList deleteEmployee={this.deleteEmployee} employees={this.state.employees} />
                 }} />
                 <Route path="/owners" render={(props) => {
                     return <OwnerList deleteOwner={this.deleteOwner} owners={this.state.owners} />
+                }} />
+                <Route path="/animals/:animalId(\d+)" render={(props) => {
+                    return <AnimalDetail {...props} deleteAnimal={this.deleteAnimal} animals={this.state.animals} />
                 }} />
             </React.Fragment>
         )

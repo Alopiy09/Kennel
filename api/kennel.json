@@ -23,14 +23,6 @@
   ],
   "animals": [
     {
-      "id": 3,
-      "name": "Rex"
-    },
-    {
-      "id": 4,
-      "name": "Big Boi"
-    },
-    {
       "id": 5,
       "name": "Bill"
     },
@@ -46,11 +38,6 @@
       "phoneNumber": "764-829-0998"
     },
     {
-      "id": 2,
-      "name": "Bill",
-      "phoneNumber": "764-829-0998"
-    },
-    {
       "id": 3,
       "name": "Bob",
       "phoneNumber": "764-829-0998"
@@ -59,6 +46,6 @@
       "id": 4,
       "name": "Joe",
       "phoneNumber": "764-829-0998"
-    },
+    }
   ]
 }
