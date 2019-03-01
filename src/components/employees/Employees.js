@@ -5,13 +5,18 @@ class EmployeeList extends Component {
     render() {
         return (
             <section className="employees">
-            {
-                this.props.employees.map(employee =>
-                    <div key={employee.id}>
-                        {employee.name}
-                    </div>
-                )
-            }
+                {
+                    this.props.employees.map(employee =>
+                        <div key={employee.id}>
+                            {employee.name}
+                            <div>
+                            <button
+                                onClick={() => this.props.deleteEmployee(employee.id)}
+                                className="card-link">Delete</button>
+                                </div>
+                        </div>
+                    )
+                }
             </section>
         )
     }

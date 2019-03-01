@@ -9,7 +9,12 @@ class OwnerList extends Component {
                     <div key={owner.id}>
                         {owner.name}:
                         {owner.phoneNumber}
-                    </div>
+                        <div>
+                            <button
+                                onClick={() => this.props.deleteOwner(owner.id)}
+                                className="card-link">Delete</button>
+                                </div>
+                        </div>
                 )
             }
             </section>
