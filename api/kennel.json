@@ -23,12 +23,40 @@
   ],
   "animals": [
     {
-      "id": 5,
-      "name": "Bill"
+      "id": 1,
+      "breed": "Husky",
+      "name": "Bill",
+      "employeeId": 3
     },
     {
-      "id": 6,
-      "name": "General Meow"
+      "id": 2,
+      "breed": "Russian Blue",
+      "name": "General Meow",
+      "employeeId": 4
+    },
+    {
+      "id": 3,
+      "breed": "Black Lab",
+      "name": "Carl",
+      "employeeId": 3
+    },
+    {
+      "name": "Rocko",
+      "breed": "Great Pieraneas",
+      "employeeId": 4,
+      "id": 4
+    },
+    {
+      "name": "bongo",
+      "breed": "Big doge",
+      "employeeId": 3,
+      "id": 5
+    },
+    {
+      "name": "new guy",
+      "breed": "whats it to ya",
+      "employeeId": 3,
+      "id": 6
     }
   ],
   "owners": [
@@ -46,6 +74,33 @@
       "id": 4,
       "name": "Joe",
       "phoneNumber": "764-829-0998"
+    }
+  ],
+  "animalOwners": [
+    {
+      "id": 1,
+      "animalId": 1,
+      "ownerId": 5
+    },
+    {
+      "id": 3,
+      "animalId": 3,
+      "ownerId": 1
+    },
+    {
+      "id": 4,
+      "animalId": 4,
+      "ownerId": 2
+    },
+    {
+      "id": 5,
+      "animalId": 5,
+      "ownerId": 4
+    },
+    {
+      "id": 6,
+      "animalId": 5,
+      "ownerId": 6
     }
   ]
 }

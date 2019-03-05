@@ -1,17 +1,18 @@
 import React, { Component } from "react"
 import "./Animal.css"
 import dog from "./DogIcon.png"
-import { Link } from "react-router-dom";
 
 
-export default class AnimalDetail extends Component {
+export default class Animal extends Component {
     render() {
         /*
             Using the route parameter, find the animal that the
             user clicked on by looking at the `this.props.animals`
             collection that was passed down from ApplicationViews
         */
-        const animal = this.props.animals.find(a => a.id === parseInt(this.props.match.params.animalId)) || {}
+        const animal = this.props.animals.find(a =>
+            a.id === parseInt(this.props.match.params.animalId))
+             || {id:404, name:"404", breed: "Dog not found"}
 
         return (
             <section className="animal">
@@ -22,10 +23,11 @@ export default class AnimalDetail extends Component {
                             {animal.name}
                         </h4>
                         <h6 className="card-title">{animal.breed}</h6>
-                        <Link className="nav-link" to={`/animals/${animal.id}`}>Details</Link>
                         <button
-                            onClick={() => this.props.deleteAnimal(animal.id)
-                                            .then(() => this.props.history.push("/animals"))}
+                            onClick={() =>
+                                this.props.deleteAnimal(animal.id)
+                                    .then(() => this.props.history.push("/animals"))
+                            }
                             className="card-link">Delete</button>
                     </div>
                 </div>

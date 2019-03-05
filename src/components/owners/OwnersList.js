@@ -12,7 +12,7 @@ class OwnerList extends Component {
                         <div>
                             <button
                                 onClick={() => this.props.deleteOwner(owner.id)}
-                                className="card-link">Delete</button>
+                                className="card-link">Leaving</button>
                                 </div>
                         </div>
                 )
